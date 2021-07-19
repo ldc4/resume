@@ -1,6 +1,6 @@
 <template>
   <div class="a4-paper">
-    <div class="mx-auto py-16" :style="{ width, height }">
+    <div class="mx-auto" :style="{ width, height }">
       <div class="h-1/6">
         <slot name="header"></slot>
       </div>

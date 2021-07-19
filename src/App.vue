@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <div class="w-screen bg-gray-200">
-      <A4>
+    <div class="w-screen bg-gray-200 py-16">
+      <A4 id="a4">
         <template v-slot:header>
           <PersonInfo />
         </template>
@@ -16,7 +16,6 @@
       </A4>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -38,6 +37,29 @@ export default {
   },
   setup() {
 
+    onkeydown = function(e) {
+      if (
+        (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) ||
+        (e.metaKey && e.keyCode == 'P'.charCodeAt(0))
+      ) {
+        e.preventDefault();
+        printA4();
+      }
+    }
+
+    const printA4 = () => {
+      console.log('打印')
+      const a4DOM = document.getElementById('a4');
+      const bodyInnerHTML = document.body.innerHTML;
+      window.document.body.innerHTML = a4DOM.innerHTML;
+      window.print();
+      window.document.body.innerHTML = bodyInnerHTML;
+      return false;
+    }
+
+    return {
+      printA4
+    }
   }
 }
 </script>
