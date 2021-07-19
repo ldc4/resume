@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/resume",
+    "build": "vite build --base=/resume/",
     "serve": "vite preview"
   },
   "dependencies": {
